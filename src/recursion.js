@@ -6,34 +6,84 @@
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
-var factorial = function(n) {
-};
+var factorial = function (x) 
+{ 
+
+  if (x === 0)
+ {
+    return 1;
+ }
+  return x * factorial(x-1);
+         
+}
+console.log(factorial(5));
+
+  
+  
+
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
-var sum = function(array) {
-};
+var sum = function (array) {
+    if (array.length === 0) {
+    return 0;
+    }else{
+      return array[0] + sum(array.slice(1));
+     }
+    
+  };
+  console.log(sum([1,2,3,4,5]));
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
-};
+// var arraySum = function (array) {
+//   if (array.length === 0) {
+//     return 0;
+//   } else {
+//     return array[0][0] + d  
+//   }
+// };
 
 // 4. Check if a number is even.
-var isEven = function(n) {
+var isEven = function (n) {
+  // acount for negative integers
+  if (n < 0) {
+    n = Math.abs(n)
+  }
+  if (n === 0) return true;
+  if (n === 1) return false;
+  return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+var sumBelow = function (array) {
+  if (array.length === 0) {
+  return 0;
+  }else{
+    return (array[0] + sum(array.slice(1))) - array[array.length-1];
+   }
+  
 };
+console.log(sumBelow([1,2,3,4,5]));
+
+
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-var range = function(x, y) {
-};
+var range = function range(x, y) {
+  if(x === y){
+    return [];
+  } else {
+    return Array(y - x + 1).fill().map((_, idx) => x + idx)
+    var result = range(x, y).slice(1, -1); 
+  }
+  console.log(result.toString());
+}
 
+console.log(range(2,9).slice(1,-1).toString());
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
